@@ -523,7 +523,7 @@ class spamassassin(
       if $spamd_sql_config {
         package { "perl-DBI":
           ensure => installed,
-        } 
+        }
       }
       if $bayes_sql_enabled or $awl_sql_enabled {
         package { ['libdbi-dbd-mysql','libdbi-dbd-pgsql','libdbi-dbd-sqlite']:
