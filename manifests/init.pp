@@ -502,7 +502,7 @@ class spamassassin(
 
   case $::osfamily {
     'Debian' : {
-      if $bayes_sql_enabled or $awl_sql_enabled {
+      if $spamd_sql_config or $bayes_sql_enabled or $awl_sql_enabled {
         package { ['libdbd-mysql','libdbd-pgsql','libdbd-sqlite']:
           ensure => installed,
         }
@@ -515,7 +515,7 @@ class spamassassin(
       $razor_package = 'razor'
     }
     'RedHat' : {
-      if $bayes_sql_enabled or $awl_sql_enabled {
+      if $spamd_sql_config or $bayes_sql_enabled or $awl_sql_enabled {
         package { ['libdbi-dbd-mysql','libdbi-dbd-pgsql','libdbi-dbd-sqlite']:
           ensure => installed,
         }
