@@ -503,7 +503,7 @@ class spamassassin(
   case $::osfamily {
     'Debian' : {
       if $spamd_sql_config {
-        package { "libdbi-perl":
+        package { "libdbd-mysql-perl":
           ensure => installed,
         }
       }
@@ -521,7 +521,7 @@ class spamassassin(
     }
     'RedHat' : {
       if $spamd_sql_config {
-        package { "perl-DBI":
+        package { "perl-DBD-MySQL":
           ensure => installed,
         }
       }
