@@ -586,7 +586,7 @@ class spamassassin(
       file { $final_razor_home:
         ensure  => directory,
         recurse => true,
-      }  
+      } 
     } ->
     exec { 'razor_register':
       command => "/usr/bin/razor-admin -home=${final_razor_home} -register",
