@@ -572,11 +572,6 @@ class spamassassin(
 
   # Install and setup razor
   if $razor_enabled {
-    package { $razor_package:
-      ensure   => installed,
-      alias    => 'razor',
-      require  => Package['spamassassin'],
-    } ->
     if $run_execs_as_user {
       file { $final_razor_home:
         owner   => $run_execs_as_user,
@@ -587,6 +582,11 @@ class spamassassin(
         ensure  => directory,
         recurse => true,
       }
+    }
+    package { $razor_package:
+      ensure   => installed,
+      alias    => 'razor',
+      require  => Package['spamassassin'],
     } ->
     exec { 'razor_register':
       command => "/usr/bin/razor-admin -home=${final_razor_home} -register",
