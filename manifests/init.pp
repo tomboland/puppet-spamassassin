@@ -577,6 +577,7 @@ class spamassassin(
         owner   => $run_execs_as_user,
         ensure  => directory,
         recurse => true,
+      }
     } else {
       file { $final_razor_home:
         ensure  => directory,
