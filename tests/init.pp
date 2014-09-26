@@ -9,7 +9,7 @@ class { 'spamassassin':
   blacklist_from => ['*@msn.com','*@hotmail.com'],
   blacklist_to   => ['frank@spammer.com', 'rita@example.com'],
   rewrite_header_subject => '***SPAM***',
-  report_safe	 => 2,
+  report_safe    => 2,
   trusted_networks => ['192.168.0.0/24'],
   skip_rbl_checks => false,
   dns_available  => 'test',
